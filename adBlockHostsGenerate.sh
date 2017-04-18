@@ -23,7 +23,7 @@ LISTS='http://someonewhocares.org/hosts/hosts
 
 for list in $LISTS; do
 	echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Loading list: $list
-	curl $list >> $ADAWAYRAW
+	curl -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36" $list >> $ADAWAYRAW
 done
 
 echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Replace 127.0.0.1 with 0.0.0.0
