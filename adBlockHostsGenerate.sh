@@ -39,12 +39,15 @@ sed -i -e 's/#.*$//' -e '/^$/d' "$ADAWAYRAW"
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Creating clean hosts
 echo \# Generated "$(date +'%d.%m.%Y-%H:%M:%S:%N')" > "$ADAWAYCLEAN"
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Sorting and removing dupes
-cat "$ADAWAYRAW" | sed -e "s/[[:space:]]\+/ /g" | sed -e 's/[[:blank:]]*$//' | sort -u | uniq >> "$ADAWAYCLEAN"
+sed -i -e "s/[[:space:]]\+/ /g" "$ADAWAYRAW"
+sed -i -e 's/[[:blank:]]*$//' "$ADAWAYRAW"
+sort -u "$ADAWAYRAW"
+uniq "$ADAWAYRAW"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Removing invalid entries
-sed -i -e 's/0.0.0.0$//' "$ADAWAYCLEAN"
+sed -i -e 's/0.0.0.0$//' "$ADAWAYRAW"
 
-rm "$ADAWAYRAW"
+mv "$ADAWAYRAW" "$ADAWAYCLEAN"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Adding custom entries
 {
