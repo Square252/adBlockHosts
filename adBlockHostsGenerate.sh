@@ -63,7 +63,7 @@ chown www-data:www-data /var/www/hosts.txt
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"]  Generating unbound zone file...
 rm -f /var/www/hosts-unbound-zones.txt
-cat /var/www/hosts.txt | grep '^0\.0\.0\.0' | awk '{print "local-zone: \""$2"\" redirect\nlocal-data: \""$2" A 0.0.0.0\""}' >> /var/www/hosts-unbound-zones.txt
+grep '^0\.0\.0\.0' /var/www/hosts.txt | awk '{print "local-zone: \""$2"\" redirect\nlocal-data: \""$2" A 0.0.0.0\""}' >> /var/www/hosts-unbound-zones.txt
 chown www-data:www-data /var/www/hosts-unbound-zones.txt
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Done.
