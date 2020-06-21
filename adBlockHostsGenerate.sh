@@ -4,12 +4,14 @@ ADAWAYRAW=`mktemp`
 ADAWAYCLEAN=`mktemp`
 DATE=$(date +'%d.%m.%Y-%H:%M:%S:%N')
 
+# TODO: Add handling for domain lists (without ip)
+# e.g.: 	https://phishing.army/download/phishing_army_blocklist_extended.txt
+
 LISTS='http://someonewhocares.org/hosts/hosts
 	http://winhelp2002.mvps.org/hosts.txt
 	https://adaway.org/hosts.txt
 	https://hosts-file.net/ad_servers.txt
 	https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext&useip=0.0.0.0
-	https://phishing.army/download/phishing_army_blocklist_extended.txt
 	https://raw.githubusercontent.com/AdAway/adaway.github.io/master/hosts.txt
 	https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt
 	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts
