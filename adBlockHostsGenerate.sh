@@ -26,39 +26,39 @@ LISTS='http://someonewhocares.org/hosts/hosts
     http://sysctl.org/cameleon/hosts'
 
 for list in $LISTS; do
-	echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Loading list: $list
+	echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Loading list: $list
 	curl -s -S -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" $list >> $ADAWAYRAW
 done
 
-echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Replace 127.0.0.1 with 0.0.0.0
+echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Replace 127.0.0.1 with 0.0.0.0
 sed -i 's/127.0.0.1/0.0.0.0/' $ADAWAYRAW
 
-echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Removing comments and empty lines
+echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Removing comments and empty lines
 sed -i -e 's/#.*$//' -e '/^$/d' $ADAWAYRAW
 
-echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Creating clean hosts
+echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Creating clean hosts
 echo \# Generated $(date +'%d.%m.%Y-%H:%M:%S:%N') > $ADAWAYCLEAN
-echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Sorting and removing dupes
+echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Sorting and removing dupes
 cat $ADAWAYRAW | sed -e "s/[[:space:]]\+/ /g" | sed -e 's/[[:blank:]]*$//' | sort -u | uniq >> $ADAWAYCLEAN
 
-echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Removing invalid entries
+echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Removing invalid entries
 sed -i -e 's/0.0.0.0$//' $ADAWAYCLEAN
 
 rm $ADAWAYRAW
 
-echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Adding custom entries
+echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Adding custom entries
 echo \#\#\# BEGIN CUSTOM ENTRY BLOCK \#\#\# >> $ADAWAYCLEAN
 echo 127.0.0.1 localhost >> $ADAWAYCLEAN
 echo \#\#\# END CUSTOM ENTRY BLOCK \#\#\# >> $ADAWAYCLEAN
 echo \#\#\# END GENERATED HOSTS \#\#\# >> $ADAWAYCLEAN
 
-echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')]  Move file to /var/www and change permissions
+echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"]  Move file to /var/www and change permissions
 mv $ADAWAYCLEAN /var/www/hosts.txt
 chown www-data:www-data /var/www/hosts.txt
 
-echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')]  Generating unbound zone file...
+echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"]  Generating unbound zone file...
 rm -f /var/www/hosts-unbound-zones.txt
 cat /var/www/hosts.txt | grep '^0\.0\.0\.0' | awk '{print "local-zone: \""$2"\" redirect\nlocal-data: \""$2" A 0.0.0.0\""}' >> /var/www/hosts-unbound-zones.txt
 chown www-data:www-data /var/www/hosts-unbound-zones.txt
 
-echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Done.
+echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Done.
