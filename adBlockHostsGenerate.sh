@@ -4,7 +4,8 @@ ADAWAYRAW="$(mktemp)"
 ADAWAYCLEAN="$(mktemp)"
 
 # TODO: Add handling for domain lists (without ip)
-# e.g.: 	https://phishing.army/download/phishing_army_blocklist_extended.txt
+# e.g.: https://phishing.army/download/phishing_army_blocklist_extended.txt
+# e.g.: https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
 
 LISTS='http://someonewhocares.org/hosts/hosts
 	http://winhelp2002.mvps.org/hosts.txt
@@ -20,7 +21,6 @@ LISTS='http://someonewhocares.org/hosts/hosts
 	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts
 	https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts
 	https://raw.githubusercontent.com/tyzbit/hosts/master/data/tyzbit/hosts
-	https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
 	https://www.malwaredomainlist.com/hostslist/hosts.txt
     http://sysctl.org/cameleon/hosts'
 
