@@ -27,33 +27,33 @@ LISTS='http://someonewhocares.org/hosts/hosts
 
 for list in $LISTS; do
 	echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Loading list: $list
-	curl -s -S -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" $list >> $ADAWAYRAW
+	curl -s -S -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" $list >> "$ADAWAYRAW"
 done
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Replace 127.0.0.1 with 0.0.0.0
-sed -i 's/127.0.0.1/0.0.0.0/' $ADAWAYRAW
+sed -i 's/127.0.0.1/0.0.0.0/' "$ADAWAYRAW"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Removing comments and empty lines
-sed -i -e 's/#.*$//' -e '/^$/d' $ADAWAYRAW
+sed -i -e 's/#.*$//' -e '/^$/d' "$ADAWAYRAW"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Creating clean hosts
-echo \# Generated $(date +'%d.%m.%Y-%H:%M:%S:%N') > $ADAWAYCLEAN
+echo \# Generated $(date +'%d.%m.%Y-%H:%M:%S:%N') > "$ADAWAYCLEAN"
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Sorting and removing dupes
-cat $ADAWAYRAW | sed -e "s/[[:space:]]\+/ /g" | sed -e 's/[[:blank:]]*$//' | sort -u | uniq >> $ADAWAYCLEAN
+cat "$ADAWAYRAW" | sed -e "s/[[:space:]]\+/ /g" | sed -e 's/[[:blank:]]*$//' | sort -u | uniq >> "$ADAWAYCLEAN"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Removing invalid entries
-sed -i -e 's/0.0.0.0$//' $ADAWAYCLEAN
+sed -i -e 's/0.0.0.0$//' "$ADAWAYCLEAN"
 
-rm $ADAWAYRAW
+rm "$ADAWAYRAW"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Adding custom entries
-echo \#\#\# BEGIN CUSTOM ENTRY BLOCK \#\#\# >> $ADAWAYCLEAN
-echo 127.0.0.1 localhost >> $ADAWAYCLEAN
-echo \#\#\# END CUSTOM ENTRY BLOCK \#\#\# >> $ADAWAYCLEAN
-echo \#\#\# END GENERATED HOSTS \#\#\# >> $ADAWAYCLEAN
+echo \#\#\# BEGIN CUSTOM ENTRY BLOCK \#\#\# >> "$ADAWAYCLEAN"
+echo 127.0.0.1 localhost >> "$ADAWAYCLEAN"
+echo \#\#\# END CUSTOM ENTRY BLOCK \#\#\# >> "$ADAWAYCLEAN"
+echo \#\#\# END GENERATED HOSTS \#\#\# >> "$ADAWAYCLEAN"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"]  Move file to /var/www and change permissions
-mv $ADAWAYCLEAN /var/www/hosts.txt
+mv "$ADAWAYCLEAN" /var/www/hosts.txt
 chown www-data:www-data /var/www/hosts.txt
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"]  Generating unbound zone file...
