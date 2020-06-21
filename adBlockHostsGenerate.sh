@@ -35,18 +35,19 @@ sed -i 's/127.0.0.1/0.0.0.0/' "$ADAWAYRAW"
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Removing comments and empty lines
 sed -i -e 's/#.*$//' -e '/^$/d' "$ADAWAYRAW"
 
-echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Creating clean hosts
-echo \# Generated "$(date +'%d.%m.%Y-%H:%M:%S:%N')" > "$ADAWAYCLEAN"
+
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Sorting and removing dupes
 sed -i -e "s/[[:space:]]\+/ /g" "$ADAWAYRAW"
 sed -i -e 's/[[:blank:]]*$//' "$ADAWAYRAW"
-sort -u "$ADAWAYRAW"
-uniq "$ADAWAYRAW"
+
+echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Creating clean hosts
+echo \# Generated "$(date +'%d.%m.%Y-%H:%M:%S:%N')" > "$ADAWAYCLEAN"
+sort -u "$ADAWAYCLEAN" | uniq >> "$ADAWAYCLEAN"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Removing invalid entries
-sed -i -e 's/0.0.0.0$//' "$ADAWAYRAW"
+sed -i -e 's/0.0.0.0$//' "$ADAWAYCLEAN"
 
-mv "$ADAWAYRAW" "$ADAWAYCLEAN"
+rm "$ADAWAYRAW"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Adding custom entries
 {
