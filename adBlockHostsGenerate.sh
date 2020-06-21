@@ -25,7 +25,7 @@ LISTS='http://someonewhocares.org/hosts/hosts
 	https://www.malwaredomainlist.com/hostslist/hosts.txt
     http://sysctl.org/cameleon/hosts'
 
-for list in "$LISTS"; do
+for list in $LISTS; do
 	echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Loading list: "$list"
 	curl -s -S -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" "$list" >> "$ADAWAYRAW"
 done
