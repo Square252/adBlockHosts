@@ -25,9 +25,9 @@ LISTS='http://someonewhocares.org/hosts/hosts
 	https://www.malwaredomainlist.com/hostslist/hosts.txt
     http://sysctl.org/cameleon/hosts'
 
-for list in $LISTS; do
-	echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Loading list: $list
-	curl -s -S -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" $list >> "$ADAWAYRAW"
+for list in "$LISTS"; do
+	echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Loading list: "$list"
+	curl -s -S -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" "$list" >> "$ADAWAYRAW"
 done
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Replace 127.0.0.1 with 0.0.0.0
@@ -37,7 +37,7 @@ echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Removing comments and empty lines
 sed -i -e 's/#.*$//' -e '/^$/d' "$ADAWAYRAW"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Creating clean hosts
-echo \# Generated $(date +'%d.%m.%Y-%H:%M:%S:%N') > "$ADAWAYCLEAN"
+echo \# Generated "$(date +'%d.%m.%Y-%H:%M:%S:%N')" > "$ADAWAYCLEAN"
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Sorting and removing dupes
 cat "$ADAWAYRAW" | sed -e "s/[[:space:]]\+/ /g" | sed -e 's/[[:blank:]]*$//' | sort -u | uniq >> "$ADAWAYCLEAN"
 
@@ -47,10 +47,12 @@ sed -i -e 's/0.0.0.0$//' "$ADAWAYCLEAN"
 rm "$ADAWAYRAW"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Adding custom entries
-echo \#\#\# BEGIN CUSTOM ENTRY BLOCK \#\#\# >> "$ADAWAYCLEAN"
-echo 127.0.0.1 localhost >> "$ADAWAYCLEAN"
-echo \#\#\# END CUSTOM ENTRY BLOCK \#\#\# >> "$ADAWAYCLEAN"
-echo \#\#\# END GENERATED HOSTS \#\#\# >> "$ADAWAYCLEAN"
+{
+	echo \#\#\# BEGIN CUSTOM ENTRY BLOCK \#\#\#
+	echo 127.0.0.1 localhost
+	echo \#\#\# END CUSTOM ENTRY BLOCK \#\#\#
+	echo \#\#\# END GENERATED HOSTS \#\#\#
+} >> "$ADAWAYCLEAN"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"]  Move file to /var/www and change permissions
 mv "$ADAWAYCLEAN" /var/www/hosts.txt
