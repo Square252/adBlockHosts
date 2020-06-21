@@ -34,6 +34,9 @@ sed -i 's/127.0.0.1/0.0.0.0/' $ADAWAYRAW
 echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Removing comments and empty lines
 sed -i -e 's/#.*$//' -e '/^$/d' $ADAWAYRAW
 
+echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Trim whitespaces
+sed -i -e 's/^[ \t]*//;s/[ \t]*$//' $ADAWAYRAW
+
 echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Creating clean hosts
 echo \# Generated $(date +'%d.%m.%Y-%H:%M:%S:%N') > $ADAWAYCLEAN
 echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Sorting and removing dupes
