@@ -20,6 +20,7 @@ LISTS='http://someonewhocares.org/hosts/hosts
 	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts
 	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts
 	https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts
+	https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 	https://raw.githubusercontent.com/tyzbit/hosts/master/data/tyzbit/hosts
 	https://www.malwaredomainlist.com/hostslist/hosts.txt
     http://sysctl.org/cameleon/hosts'
