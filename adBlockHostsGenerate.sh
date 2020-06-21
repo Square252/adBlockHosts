@@ -55,7 +55,6 @@ echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Adding custom entries
 	echo \#\#\# BEGIN CUSTOM ENTRY BLOCK \#\#\#
 	echo 127.0.0.1 localhost
 	echo \#\#\# END CUSTOM ENTRY BLOCK \#\#\#
-	echo \#\#\# END GENERATED HOSTS \#\#\#
 } >> "$ADAWAYCLEAN"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"]  Move file to /var/www and change permissions
