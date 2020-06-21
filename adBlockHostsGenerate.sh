@@ -1,8 +1,8 @@
 #!/bin/sh
 export LC_ALL=de_DE
-ADAWAYRAW=`mktemp`
-ADAWAYCLEAN=`mktemp`
-DATE=$(date +'%d.%m.%Y-%H:%M:%S:%N')
+ADAWAYRAW="$(mktemp)"
+ADAWAYCLEAN="$(mktemp)"
+DATE="$(date +'%d.%m.%Y-%H:%M:%S:%N')"
 
 # TODO: Add handling for domain lists (without ip)
 # e.g.: 	https://phishing.army/download/phishing_army_blocklist_extended.txt
