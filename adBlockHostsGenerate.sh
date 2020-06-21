@@ -35,7 +35,7 @@ echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Removing comments and empty lines
 sed -i -e 's/#.*$//' -e '/^$/d' $ADAWAYRAW
 
 echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Trim whitespaces
-sed -i -e 's/^[ \t]*//;s/[ \t]*$//' $ADAWAYRAW
+sed -i -e 's/[[:blank:]]*$//' $ADAWAYRAW
 
 echo [$(date +'%d.%m.%Y-%H:%M:%S:%N')] Creating clean hosts
 echo \# Generated $(date +'%d.%m.%Y-%H:%M:%S:%N') > $ADAWAYCLEAN
