@@ -7,23 +7,23 @@ ADAWAYCLEAN="$(mktemp)"
 # e.g.: https://phishing.army/download/phishing_army_blocklist_extended.txt
 # e.g.: https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
 
-LISTS='http://someonewhocares.org/hosts/hosts
-	http://winhelp2002.mvps.org/hosts.txt
-	https://adaway.org/hosts.txt
-	https://hosts-file.net/ad_servers.txt
-	https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext&useip=0.0.0.0
-	https://raw.githubusercontent.com/AdAway/adaway.github.io/master/hosts.txt
-	https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt
-	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts
-	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Dead/hosts
-	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts
-	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts
-	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts
-	https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts
-	https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
-	https://raw.githubusercontent.com/tyzbit/hosts/master/data/tyzbit/hosts
+LISTS='http://sysctl.org/cameleon/hosts
 	https://www.malwaredomainlist.com/hostslist/hosts.txt
-    http://sysctl.org/cameleon/hosts'
+	https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt
+	https://raw.githubusercontent.com/tyzbit/hosts/master/data/tyzbit/hosts
+	https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+	https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts
+	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts
+	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts
+	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts
+	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Dead/hosts
+	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts
+	https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt
+	https://raw.githubusercontent.com/AdAway/adaway.github.io/master/hosts.txt
+	https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext&useip=0.0.0.0
+	https://adaway.org/hosts.txt
+	http://winhelp2002.mvps.org/hosts.txt
+	http://someonewhocares.org/hosts/hosts'
 
 for list in $LISTS; do
 	echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Loading list: "$list"
