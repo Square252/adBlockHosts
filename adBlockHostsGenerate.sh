@@ -13,6 +13,7 @@ LISTS='http://sysctl.org/cameleon/hosts
 	https://raw.githubusercontent.com/tyzbit/hosts/master/data/tyzbit/hosts
 	https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 	https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts
+	https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt
 	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts
 	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts
 	https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts
@@ -43,6 +44,10 @@ sed -i -e 's/[[:blank:]]*$//' "$ADAWAYRAW"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Creating clean hosts
 echo \# Generated "$(date +'%d.%m.%Y-%H:%M:%S:%N')" > "$ADAWAYCLEAN"
+echo \# Source Lists: >> "$ADAWAYCLEAN"
+for list in $LISTS; do
+	echo \# - "$list" >> "$ADAWAYCLEAN"
+done
 sort -u "$ADAWAYRAW" | uniq >> "$ADAWAYCLEAN"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Removing invalid entries
