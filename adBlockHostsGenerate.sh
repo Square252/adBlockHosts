@@ -57,13 +57,13 @@ echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Adding custom entries
 	echo \#\#\# END CUSTOM ENTRY BLOCK \#\#\#
 } >> "$ADAWAYCLEAN"
 
-echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"]  Move file to /var/www and change permissions
-mv "$ADAWAYCLEAN" /var/www/hosts.txt
-chown www-data:www-data /var/www/hosts.txt
+echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"]  Move file to /var/www/html and change permissions
+mv "$ADAWAYCLEAN" /var/www/html/hosts.txt
+chown www-data:www-data /var/www/html/hosts.txt
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"]  Generating unbound zone file...
-rm -f /var/www/hosts-unbound-zones.txt
-grep '^0\.0\.0\.0' /var/www/hosts.txt | awk '{print "local-zone: \""$2"\" redirect\nlocal-data: \""$2" A 0.0.0.0\""}' >> /var/www/hosts-unbound-zones.txt
-chown www-data:www-data /var/www/hosts-unbound-zones.txt
+rm -f /var/www/html/hosts-unbound-zones.txt
+grep '^0\.0\.0\.0' /var/www/html/hosts.txt | awk '{print "local-zone: \""$2"\" redirect\nlocal-data: \""$2" A 0.0.0.0\""}' >> /var/www/html/hosts-unbound-zones.txt
+chown www-data:www-data /var/www/html/hosts-unbound-zones.txt
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Done.
