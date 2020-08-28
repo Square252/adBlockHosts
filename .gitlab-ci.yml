@@ -3,3 +3,4 @@ shellcheck:
     image: koalaman/shellcheck-alpine:stable
     script:
     - shellcheck *.sh
+    tags: [docker]
