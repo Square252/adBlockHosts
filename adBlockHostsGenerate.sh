@@ -51,9 +51,9 @@ done
 sort -u "$ADAWAYRAW" | uniq >> "$ADAWAYCLEAN"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Removing invalid entries
-sed -i 's/0.0.0.0 0.0.0.0$//' "$ADAWAYCLEAN"
-sed -i 's/0.0.0.0 $//' "$ADAWAYCLEAN"
-sed -i 's/0.0.0.0$//' "$ADAWAYCLEAN"
+sed -i 's/^0.0.0.0 0.0.0.0$//' "$ADAWAYCLEAN"
+sed -i 's/^0.0.0.0 $//' "$ADAWAYCLEAN"
+sed -i 's/^0.0.0.0$//' "$ADAWAYCLEAN"
 
 rm "$ADAWAYRAW"
 
