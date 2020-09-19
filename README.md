@@ -1,12 +1,18 @@
 # adBlocking Hosts
 
-This repository consolidates several reputable hosts files, and merges them into a unified hosts file with duplicates removed. 
+This repository consolidates several reputable hosts files, and merges them into a unified hosts file with duplicates removed.
+
+The resulting hosts file is available under the following URL:
+
+### [https://0xfc.de/hosts.txt](https://0xfc.de/hosts.txt)
+
+The file gets regenerated daily and is suitable for use in [PiHole](https://pi-hole.net/) or [AdAway](https://adaway.org/) for example.
 
 # Usage
 ```
 ./adBlockHostsGenerate.sh
 ```
-
+The resulting file is saved under `/var/www/html/hosts.txt`
 # Currently included list:
 ```
 http://sysctl.org/cameleon/hosts

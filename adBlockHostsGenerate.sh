@@ -1,5 +1,4 @@
 #!/bin/sh
-export LC_ALL=de_DE
 ADAWAYRAW="$(mktemp)"
 ADAWAYCLEAN="$(mktemp)"
 
