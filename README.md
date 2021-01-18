@@ -18,7 +18,6 @@ The resulting file is saved under `/var/www/html/hosts.txt`
 http://sysctl.org/cameleon/hosts
 https://www.malwaredomainlist.com/hostslist/hosts.txt
 https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt
-https://raw.githubusercontent.com/tyzbit/hosts/master/data/tyzbit/hosts
 https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts
 https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt
