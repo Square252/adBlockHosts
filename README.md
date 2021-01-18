@@ -1,5 +1,7 @@
 # adBlocking Hosts
 
+[![Hosts online](https://img.shields.io/website-up-down-green-red/https/0xfc.de.svg)](https://0xfc.de/hosts.txt)
+
 The script in this repository consolidates several sources of ad and malware related hosts files and merges them into a unified hosts file.
 
 The resulting hosts file is available under the following URL:
