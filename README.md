@@ -1,6 +1,6 @@
 # adBlocking Hosts
 
-This repository consolidates several reputable hosts files, and merges them into a unified hosts file with duplicates removed.
+The sript in this repository consolidates several source of ad and malware related hosts files and merges them into a unified hosts file.
 
 The resulting hosts file is available under the following URL:
 
@@ -13,7 +13,7 @@ The file gets regenerated daily and is suitable for use in [PiHole](https://pi-h
 ./adBlockHostsGenerate.sh
 ```
 The resulting file is saved under `/var/www/html/hosts.txt`
-# Currently included list:
+# Currently included source lists:
 ```
 https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt
 https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
