@@ -1,6 +1,6 @@
 # adBlocking Hosts
 
-The sript in this repository consolidates several source of ad and malware related hosts files and merges them into a unified hosts file.
+The script in this repository consolidates several sources of ad and malware related hosts files and merges them into a unified hosts file.
 
 The resulting hosts file is available under the following URL:
 
