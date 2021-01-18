@@ -19,8 +19,8 @@ LISTS='https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended
 	https://raw.githubusercontent.com/AdAway/adaway.github.io/master/hosts.txt
 	https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext&useip=0.0.0.0
 	https://adaway.org/hosts.txt
-	http://winhelp2002.mvps.org/hosts.txt
-	http://someonewhocares.org/hosts/hosts'
+	https://winhelp2002.mvps.org/hosts.txt
+	https://someonewhocares.org/hosts/hosts'
 
 for list in $LISTS; do
 	echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Loading list: "$list"
