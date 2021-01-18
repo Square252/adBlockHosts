@@ -39,7 +39,7 @@ sed -i -e "s/[[:space:]]\+/ /g" "$ADAWAYRAW"
 sed -i -e 's/[[:blank:]]*$//' "$ADAWAYRAW"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Creating clean hosts
-echo \# Generated "$(date +'%d.%m.%Y-%H:%M:%S:%N')" > "$ADAWAYCLEAN"
+echo \# Generated "$(date +'%d.%m.%Y-%H:%M:%S:%N')" // "$(date)" > "$ADAWAYCLEAN"
 echo \# Source Lists: >> "$ADAWAYCLEAN"
 for list in $LISTS; do
 	echo \# - "$list" >> "$ADAWAYCLEAN"
