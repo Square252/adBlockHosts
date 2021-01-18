@@ -6,8 +6,7 @@ ADAWAYCLEAN="$(mktemp)"
 # e.g.: https://phishing.army/download/phishing_army_blocklist_extended.txt
 # e.g.: https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
 
-LISTS='http://sysctl.org/cameleon/hosts
-	https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt
+LISTS='https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt
 	https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 	https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts
 	https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt
