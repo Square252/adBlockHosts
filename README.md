@@ -17,6 +17,7 @@ The file gets regenerated daily and is suitable for use in [PiHole](https://pi-h
 The resulting file is saved under `/var/www/html/hosts.txt`
 # Currently included source lists:
 ```
+https://blocklistproject.github.io/Lists/ads.txt
 https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt
 https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts
