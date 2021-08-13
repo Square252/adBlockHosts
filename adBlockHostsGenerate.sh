@@ -40,6 +40,7 @@ sed -i -e "s/[[:space:]]\+/ /g" "$ADAWAYRAW"
 sed -i -e 's/[[:blank:]]*$//' "$ADAWAYRAW"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Creating clean hosts
+echo \# Script used to generate this file is available here: https://github.com/Square252/adBlockHosts > "$ADAWAYCLEAN"
 echo \# Generated on "$(date +'%d.%m.%Y-%H:%M:%S:%N')" // "$(date)" > "$ADAWAYCLEAN"
 echo \# Source Lists: >> "$ADAWAYCLEAN"
 for list in $LISTS; do
