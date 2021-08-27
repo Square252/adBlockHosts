@@ -59,6 +59,7 @@ echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Adding custom entries
 {
 	echo \#\#\# BEGIN CUSTOM ENTRY BLOCK \#\#\#
 	echo 127.0.0.1 localhost
+	echo ::1 localhost
 	echo \#\#\# END CUSTOM ENTRY BLOCK \#\#\#
 } >> "$ADAWAYCLEAN"
 
