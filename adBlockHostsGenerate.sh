@@ -28,7 +28,7 @@ LISTS='https://adaway.org/hosts.txt
 
 for list in $LISTS; do
 	echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Loading list: "$list"
-	curl -s -f -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" "$list" >> "$ADAWAYRAW"
+	curl -s -f -L -A "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0" "$list" >> "$ADAWAYRAW"
 done
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Replace 127.0.0.1 with 0.0.0.0
