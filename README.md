@@ -15,11 +15,6 @@ The file gets regenerated daily and is suitable for use in [PiHole](https://pi-h
 ./adBlockHostsGenerate.sh
 ```
 The resulting file is saved under `/var/www/html/hosts.txt`
-
-### Requirementes
-
-Depends on `idn2`
-
 # Currently included source lists:
 ```
 https://adaway.org/hosts.txt
