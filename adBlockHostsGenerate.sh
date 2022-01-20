@@ -49,7 +49,7 @@ echo \# Source Lists: >> "$ADAWAYCLEAN"
 for list in $LISTS; do
 	echo \# - "$list" >> "$ADAWAYCLEAN"
 done
-sort -u "$ADAWAYRAW" | uniq >> "$ADAWAYCLEAN"
+sort -u "$ADAWAYRAW" | uniq | idn2 >> "$ADAWAYCLEAN"
 
 echo ["$(date +'%d.%m.%Y-%H:%M:%S:%N')"] Removing invalid entries
 sed -i 's/^0.0.0.0 0.0.0.0$//' "$ADAWAYCLEAN"
